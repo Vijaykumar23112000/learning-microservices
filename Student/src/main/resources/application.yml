@@ -1,0 +1,21 @@
+eureka:
+  instance:
+    hostname: ${EUREKA_HOST_NAME}
+  client:
+    service-url:
+      defaultZone: ${EUREKA_DEFAULT_ZONE}
+server:
+  port: ${SERVER_PORT}
+spring:
+  application:
+    name: students
+  config:
+    import: optional:configserver:${SPRING_CONFIG_SERVER}
+  datasource:
+    url: ${URL}
+    username: ${USERNAME}
+    password: ${PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database: postgresql
