@@ -1,6 +1,7 @@
 package com.magret.resource;
 
 import com.magret.entity.School;
+import com.magret.response.FullSchoolResponse;
 import com.magret.service.SchoolService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -29,6 +30,14 @@ public class SchoolController {
     ResponseEntity<List<School>> findAllSchools()
     {
         return ResponseEntity.ok(schoolService.findAll());
+    }
+
+    @GetMapping("/with-students/{schoolId}")
+    ResponseEntity<FullSchoolResponse> findAllSchools(
+            @PathVariable Integer schoolId
+    )
+    {
+        return ResponseEntity.ok(schoolService.findSchoolsWithStudents(schoolId));
     }
 
 }
