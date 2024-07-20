@@ -1,0 +1,27 @@
+eureka:
+  client:
+    register-with-eureka: false
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: students
+          uri: ${STUDENTS_BASE_ROUTE}
+          predicates:
+            - Path=/api/v1/students/**
+        - id: schools
+          uri: ${SCHOOLS_BASE_ROUTE}
+          predicates:
+            - Path=/api/v1/schools/**
+
+  application:
+    name: gateway
+  config:
+    import: optional:configserver:${SPRING_CONFIG_SERVER}
+
+server:
+  port: ${SERVER_PORT}

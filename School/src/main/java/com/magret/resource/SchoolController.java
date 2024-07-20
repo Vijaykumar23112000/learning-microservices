@@ -33,7 +33,7 @@ public class SchoolController {
     }
 
     @GetMapping("/with-students/{schoolId}")
-    ResponseEntity<FullSchoolResponse> findAllSchools(
+    ResponseEntity<FullSchoolResponse> findAllStudentsOfASchool(
             @PathVariable Integer schoolId
     )
     {

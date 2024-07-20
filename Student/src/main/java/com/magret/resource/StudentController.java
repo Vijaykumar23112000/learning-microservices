@@ -39,4 +39,9 @@ public class StudentController {
         return ResponseEntity.ok(studentService.findAllStudentBySchool(schoolId));
     }
 
+    @GetMapping("/demo")
+    String demo(){
+        return "Connected Successfully";
+    }
+
 }
